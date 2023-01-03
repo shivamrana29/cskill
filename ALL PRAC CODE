@@ -1,0 +1,260 @@
+Practical 1
+AIM: INTRO TO NODE JS AND ITS INSTALLATION
+S/W REQ: NODE.JS
+
+function hello()
+{
+    console.log('Hello World');
+}
+hello();
+
+Practical 2
+AIM: TO STUDY TO STUDY BUILT IN MODULES AND IMPLEMENT THE USER DEFINED BUILT IN MODULES IN NODE.JS
+S/W REQ: NODE.JS
+
+var http = require (“http”);
+
+http.createserver(function(req.res)
+{
+res.writeHead(200,{‘Content - Type’: ‘Text/html});
+res.end(“Hello World!”);
+}) listen (8080);
+
+exports.simplemassage='Sipna College Of Enginnering';
+module.exports.simplemassage='Sipna College Of Enginnering';
+
+var msg=require('./prac2.js');
+console.log(msg.simplemassage);
+
+Practical 3:
+AIM:TO STUDY HTTP MODULE AND IMPLEMENT NODE.JS AS A WEB SERVER
+S/W REQ: NODE.JS
+
+ var http=require('http');
+http.createServer(function(req,res)
+{
+    res.write("HELLO,WELCOME TO OUR WORLD....");
+    res.end();
+}
+).listen(8081);
+
+Practical 4
+AIM: TO STUDY AND IMPLEMT NODE.JS FILE MODULE TO READ,WRITE,CREATE,UPDATEAND DELETE AND RENAME THE FILE
+NODE.JS
+Read
+var  fs=require('fs')
+
+fs.readFile('sample.txt',function(err,sample)
+{
+    if(err)
+    {
+        return console.console.error(err);
+    }
+    console.log('File is read Sucessfully'+sample.toString());
+});
+
+Write
+var  fs=require('fs')
+
+fs.writeFile('data.txt',  ‘Computer science’  function(err)
+{
+    if(err) throw err;
+    console log(‘Hello’);
+});
+data.txt: Computer Science
+
+
+
+
+Rename
+
+var  fs=require('fs')
+
+fs.rename('sample.txt', 'newfile1.txt',function(err)
+{
+    if(err)
+    {
+        return console.error(err);
+    }
+    console.log("File Renamed Successfully");
+});
+
+
+Delete 
+
+var  fs=require('fs')
+
+fs.unlink('newfile.txt',function(err,sample)
+{
+    if(err) throw err
+    console.log("File Deleted");
+});
+
+Append/Update
+var  fs=require('fs')
+
+fs.appendFile('newfile.txt', 'to Sipna Colleg Engineering.',function(err)
+{
+    if(err) throw(err);
+
+    console.log("Appended");
+});
+
+Create
+
+var  fs=require('fs')
+
+fs.create('sample.txt',function(err,sample)
+{
+    if(err)
+    {
+        return console.console.error(err);
+    }
+    console.log('File is read Sucessfully'+sample.toString());
+});
+
+Practical 5:
+TO STUDY THE URL MPODULE OF NODE.JS AND WRITE PROG THAT OPEN REQ FILE AND RETURNS CONTENT OF FILE TO CLIENT ,IF ANY THING GOES WRONG THROW 4P0P4 ERROR
+var http=require('http');
+var fs=require('fs');
+var server=http.createServer(function(req,res){
+    fs.open('input.txt','r+',function(err,fd)
+    {
+        if(err)
+        {
+            console.error(err);
+            return res.end("404 file not found");
+Practical 6
+TO CONVERT THE OUTPUT HELLO WORLD INTO UPPER-CASE LETTER BY INSTALLING UPPARCASE PACKAGE OF NPM
+
+var http=require('http');
+var uc=require('upper-case');
+http.createServer(function(req,res){
+res.writeHead(200,{'content-Type':'text.html'});
+res.write(uc.upperCase("Hello World"));
+res.end()
+}).listen(8082);
+Practical 7
+TO STUDY EVENT HANDLING IN NODE.JS AND DEMONSTRATE IT USING EVENT MODULE & EVEN EMITTER OBJECT
+
+const { EventEmitter } = require('events');
+const emitter = new EventEmitter();
+emitter.on('messageLogged', function () {
+    console.log('Listner called');
+});
+emitter.emit('messageLogged');
+Practical 8
+T0 INSTALL MYSQL AND IYTS DRIVER
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: ""
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connection with mysql is Sucessfull.");
+});
+Practical 9
+DEMONSTRATE THE CREATION OF DATABASE AND TABLE IN MYUSQK USING NODE.JS
+
+var mysql = require('mysql');
+var conn = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "mydb"
+});
+conn.connect(function (err) {
+    if (err)
+        throw err;
+    console.log("Database is Connected!");
+    var sql = "CREATE TABLE employee (name VARCHAR(255), address VARCHAR(255))";
+    //Query
+    conn.query(sql, function (err, result) {
+        if (err)
+            throw err;
+        console.log("Employee Table is Created");
+    });
+});
+
+Practical 10
+TO DEMONSTRATE THE INSERTION OF SINGLE & MULTIPLE RECORDS IN THE MY SQL USING "INSERT" STATEMENT & NODE.JS
+
+var mysql=require('mysql');
+var conn=mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "mydb"
+})
+conn.connect(function(err)
+{
+    if(err) throw err;
+    console.log("Connected");
+
+    var sql="INSERT into customers (name,address) VALUE ('Company INC','Highway 37')";
+    conn.query(sql,function(err,result){
+        if (err) throw err
+        console.log("Number of records are inserted");
+    })
+})
+        }
+        else{
+            console.log("File open Sucessfully");
+
+            fs.readFile('newfile.txt',function(err,data)
+            {
+                if(!err)
+                console.log('Success');
+                res.end(data);
+                fs.close(fd)
+            })
+            
+        }
+    });
+    });
+    server.listen(5000);
+Practical 11
+TO DEMONSTARE THE DISLPAY OR RECORD FROM THE MYSQL DATABSE SING "SELECT" STATEMENT & DISPLAY IT USING NODE.JS
+
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "mydb"
+});
+con.connect(function(err) {
+  if (err) throw err;
+  //Select only "name" and "address" from "customers":
+  con.query("SELECT name, address FROM customer", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
+
+
+Practical 12
+TO DEMOSTRATE DELETION OF REXOREDS & ROM DATABASE USING DELETE IN A TABLE BY USING THE UPDATE STATE MENT & NODE.JS
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "mydb"
+});
+con.connect(function(err) {
+  if (err) throw err;
+  //Select only "name" and "address" from "customers":
+  con.query("SELECT name, address FROM customer WHERE name='virat'", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
